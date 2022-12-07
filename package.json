@@ -7,13 +7,14 @@
     "start": "node server.js && npm run seed",
     "watch": "nodemon",
     "seed": "node seeders/seed.js",
-    "apitime":"node seeders/seed.js && node server.js"
+    "apitime": "node seeders/seed.js && node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^3.6.2",
+    "dotenv": "^16.0.3",
     "express": "^4.17.2",
     "graphql": "^16.3.0",
     "mongoose": "^6.2.0"
