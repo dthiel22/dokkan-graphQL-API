@@ -7,7 +7,7 @@
     "start": "node server.js",
     "watch": "nodemon",
     "seed": "node seeders/seed.js",
-    "apitime":"node seeders/seed.js && node server.js"
+    "apitime":"node seeders/seed.js , node server.js"
   },
   "keywords": [],
   "author": "",
