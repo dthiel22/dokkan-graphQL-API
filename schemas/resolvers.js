@@ -19,6 +19,14 @@ const resolvers = {
       return Character.find({link_skill: linkskill});  
     },
 
+    characters6Link: async (parent, { link1, link2, link3, link4, link5, link6 }) => {
+      return Character.find({ $or: [{link_skill: link1},{ link_skill:link2},{ link_skill: link3},{link_skill: link4},{link_skill: link5},{link_skill: link6}]});
+    },
+
+    characters7Link: async (parent, { link1, link2, link3, link4, link5, link6, link7 }) => {
+      return Character.find({ $or: [{link_skill: link1},{ link_skill:link2},{ link_skill: link3},{link_skill: link4},{link_skill: link5},{link_skill: link6},{link_skill: link7}]});
+    },
+
     linksWithAnd: async (parent, { link1, link2 }) => {
       return Character.find({ $and: [{ link_skill: link1 }, { link_skill: link2 }] });   
     },
@@ -26,6 +34,7 @@ const resolvers = {
     links4Match: async (parent, { link1, link2, link3, link4 }) => {
       return Character.find({ $and: [{ link_skill: link1 }, { link_skill: link2 }, { link_skill: link3 }, { link_skill: link4 }] });   
     },
+
     
     charactersTest: async (parent, { link1, link2 }) => {
       return Character.find({
