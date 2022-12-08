@@ -1,4 +1,3 @@
-console.log(process.env.MONGODB_URI)
 const db = require('../config/connection');
 const { Character } = require('../models');
 const characterSeeds = require('./characterSeeds.json');
