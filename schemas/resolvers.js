@@ -24,7 +24,7 @@ const resolvers = {
     },
 
     characters7Link: async (parent, { link1, link2, link3, link4, link5, link6, link7 }) => {
-      return Character.find({ $or: [{link_skill: link1},{ link_skill:link2},{ link_skill: link3},{link_skill: link4},{link_skill: link5},{link_skill: link6},{link_skill: link7}]});
+      return Character.find({ $or: [{link_skill: link1},{link_skill:link2},{ link_skill: link3},{link_skill: link4},{link_skill: link5},{link_skill: link6},{link_skill: link7}]});
     },
 
     linksWithAnd: async (parent, { link1, link2 }) => {
