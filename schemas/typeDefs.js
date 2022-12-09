@@ -45,7 +45,7 @@ const typeDefs = gql`
 
     charactersLink(linkskill: String): [Character]!
 
-    characters6Link(link1:String,link2:String,link3:String,link4:String,link5:String,link6:String,):[Character]!
+    characters6Link(link1:String,link2:String,link3:String,link4:String,link5:String,link6:String):[Character]!
 
     characters7Link(link1:String,link2:String,link3:String,link4:String,link5:String,link6:String,link7:String):[Character]!
 
