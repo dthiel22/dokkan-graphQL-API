@@ -15,6 +15,10 @@ const resolvers = {
       return Character.find({category: category});
     },
 
+    characterName: async (parent, { name }) => {
+      return Character.find({name: name});
+    },
+
     charactersLink: async (parent, { linkskill }) => {
       return Character.find({link_skill: linkskill});  
     },

@@ -40,6 +40,8 @@ const typeDefs = gql`
     characters: [Character]!
 
     character(dokkanId: Int): Character
+
+    characterName(name: String): [Character]
     
     charactersCat(category: String): [Character]!
 
