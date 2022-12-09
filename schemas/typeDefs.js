@@ -43,7 +43,7 @@ const typeDefs = gql`
 
     characterName(name: String): [Character]
     
-    charactersCat(category: String): [Character]!
+    # charactersCat(category: String): [Character]!
 
     charactersLink(linkskill: String): [Character]!
 

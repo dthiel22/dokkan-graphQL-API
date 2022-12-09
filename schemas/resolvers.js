@@ -11,9 +11,9 @@ const resolvers = {
       return Character.findOne({id: dokkanId});
     },
 
-    charactersCat: async (parent, { category }) => {
-      return Character.find({category: category});
-    },
+    // charactersCat: async (parent, { category }) => {
+    //   return Character.find({category: category});
+    // },
 
     characterName: async (parent, { name }) => {
       return Character.find({name: name});
