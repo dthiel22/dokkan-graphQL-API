@@ -54,14 +54,7 @@ const typeDefs = gql`
     linksWithAnd(link1: String, link2: String): [Character]
 
     links4Match(link1: String, link2: String, link3: String, link4: String): [Character]
-
-    charactersTest(link1: String, link2: String): [Character]
-    }
-    type Character {
-      id: Int!
-      name: String!
-      link_skill: [String]
-    }
+  }
 `;
 
 module.exports = typeDefs;
