@@ -3,6 +3,8 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type Character{
     id: Int
+    thumb: Int,
+    art: Int,
     name: String
     title: String
     rarity: String
