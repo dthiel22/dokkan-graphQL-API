@@ -1,6 +1,11 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Character{
     id: Int
     thumb: Int,
@@ -37,15 +42,24 @@ const typeDefs = gql`
     jp_date_eza: String
     glb_date_eza: String,
   }
+
+  type User {
+    _id: String
+    username: String
+    email: String
+    characterCount: Int
+    savedCharacters: [Int]
+  }
   
   type Query {
+    # TODO: These are for the characters
     characters: [Character]!
 
     character(dokkanId: Int): Character
 
+    charactersWithIds(dokkanIds:[Int]):[Character]
+
     characterName(name: String): [Character]
-    
-    # charactersCat(category: String): [Character]!
 
     charactersLink(linkskill: String): [Character]!
 
@@ -56,9 +70,22 @@ const typeDefs = gql`
     linksWithAnd(link1: String, link2: String): [Character]
 
     links4Match(link1: String, link2: String, link3: String, link4: String): [Character]
+
+    # TODO: These are for the Users
+    me(token:String!): User
+
+    users: [User]
+  }
+
+  type Mutation {
+    login(email: String!, password: String!): Auth
+
+    addUser(username: String!, email: String!, password: String!): Auth
+
+    saveCharacter(token: String!, dokkanId:Int):User
+
+    removeCharacter(token:String!, dokkanId:Int):User
   }
 `;
 
 module.exports = typeDefs;
-
-//new line
