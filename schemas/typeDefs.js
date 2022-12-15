@@ -72,7 +72,7 @@ const typeDefs = gql`
     links4Match(link1: String, link2: String, link3: String, link4: String): [Character]
 
     # TODO: These are for the Users
-    me(username:String!): User
+    me(token:String!): User
 
     users: [User]
   }
