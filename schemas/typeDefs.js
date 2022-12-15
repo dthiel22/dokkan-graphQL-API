@@ -84,7 +84,7 @@ const typeDefs = gql`
 
     saveCharacter(username: String!, dokkanId:Int):User
 
-    removeCharacter(token:String!, dokkanId:Int):User
+    removeCharacter(username:String!, dokkanId:Int):User
   }
 `;
 

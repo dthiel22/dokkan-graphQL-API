@@ -90,9 +90,9 @@ const resolvers = {
       );
     },
 
-    removeCharacter: async (parent, { token, dokkanId}) => {
+    removeCharacter: async (parent, { username, dokkanId}) => {
       return User.findOneAndUpdate(
-        { token: token },
+        { username: username },
         { $pull: { savedCharacters : dokkanId} },
         {
           new: true,
