@@ -44,8 +44,8 @@ const resolvers = {
     },
 
     //TODO: All these queries are for user
-    me: async (parent, { token }) => {
-      return User.findOne({ token: token });
+    me: async (parent, { username }) => {
+      return User.findOne({ username: username });
     },
 
     users: async (parent, {}) => {
