@@ -82,7 +82,7 @@ const resolvers = {
       return User.findOneAndUpdate(
         { username: username },
         {
-          $push: { savedCharacters:dokkanId }
+          $addToSet: { savedCharacters:dokkanId }
         },
         {
           new: true,
