@@ -78,9 +78,9 @@ const resolvers = {
       return { token, user };
     },
 
-    saveCharacter: async (parent, { token, dokkanId}) => {
+    saveCharacter: async (parent, { username, dokkanId}) => {
       return User.findOneAndUpdate(
-        { token: token },
+        { username: username },
         {
           $push: { savedCharacters:dokkanId }
         },

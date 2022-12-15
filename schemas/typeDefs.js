@@ -82,7 +82,7 @@ const typeDefs = gql`
 
     addUser(username: String!, email: String!, password: String!): Auth
 
-    saveCharacter(token: String!, dokkanId:Int):User
+    saveCharacter(username: String!, dokkanId:Int):User
 
     removeCharacter(token:String!, dokkanId:Int):User
   }
