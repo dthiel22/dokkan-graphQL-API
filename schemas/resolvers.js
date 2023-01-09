@@ -58,13 +58,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('No user with this email found!');
+        throw new AuthenticationError('email or password is incorrect!');
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect password!');
+        throw new AuthenticationError('email or password is incorrect!');
       }
 
       const token = signToken(user);
@@ -72,10 +72,26 @@ const resolvers = {
     },
 
     addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-
-      return { token, user };
+      try {
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
+  
+        return { token, user };
+      }
+      catch (error) {
+        // Check the error message to see if it's a duplicate key error
+        if (error.message.includes('duplicate key error')) {
+          // Check the error message to see if it's a duplicate email or username
+          if (error.message.includes('email_1')) {
+            throw new Error(`Email "${email}" is already taken`);
+          }
+          if (error.message.includes('username_1')) {
+            throw new Error(`Username "${username}" is already taken`);
+          }
+        }
+        // Otherwise, throw the error so it can be handled by the error handling middleware
+        throw error;
+      }
     },
 
     saveCharacter: async (parent, { username, dokkanId}) => {
